@@ -9,5 +9,5 @@
 #include "motor.h"
 
 void userMain() {
-    pwmOutputTb6612(0, 0);
+    pwmOutputTb6612(-0, -0);
 }

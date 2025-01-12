@@ -3,7 +3,7 @@
 * @author Kinvy
 * @email kinvy66@163.com
 * @date: 2025/1/12 16:25
-* @description: 
+* @description: 以万向轮的方向为前方，pwm负值向前，正值向后
 **/
 #include "motor.h"
 #include "main.h"
@@ -12,19 +12,19 @@
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim3;
 
-// 电机1正转
+// 电机1向前
 #define MOTOR1_CW       HAL_GPIO_WritePin(AIN1_GPIO_Port, AIN1_Pin, GPIO_PIN_SET); \
                         HAL_GPIO_WritePin(AIN2_GPIO_Port, AIN2_Pin, GPIO_PIN_RESET)
-// 电机1=2反转
+// 电机1向后
 #define MOTOR1_CWW      HAL_GPIO_WritePin(AIN1_GPIO_Port, AIN1_Pin, GPIO_PIN_RESET); \
                         HAL_GPIO_WritePin(AIN2_GPIO_Port, AIN2_Pin, GPIO_PIN_SET)
 
-// 电机1正转
-#define MOTOR2_CW       HAL_GPIO_WritePin(BIN1_GPIO_Port, BIN1_Pin, GPIO_PIN_SET); \
-                        HAL_GPIO_WritePin(BIN2_GPIO_Port, BIN2_Pin, GPIO_PIN_RESET)
-// 电机1=2反转
-#define MOTOR2_CWW      HAL_GPIO_WritePin(BIN1_GPIO_Port, BIN1_Pin, GPIO_PIN_RESET); \
+// 电机2向前
+#define MOTOR2_CW       HAL_GPIO_WritePin(BIN1_GPIO_Port, BIN1_Pin, GPIO_PIN_RESET); \
                         HAL_GPIO_WritePin(BIN2_GPIO_Port, BIN2_Pin, GPIO_PIN_SET)
+// 电机2向后
+#define MOTOR2_CWW      HAL_GPIO_WritePin(BIN1_GPIO_Port, BIN1_Pin, GPIO_PIN_SET); \
+                        HAL_GPIO_WritePin(BIN2_GPIO_Port, BIN2_Pin, GPIO_PIN_RESET)
 
 
 /**
